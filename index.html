@@ -9,25 +9,56 @@
 </head>
 <body>
 <div id="background" aria-hidden="true">
-  <div class="bg-glow"></div><div id="hearts"></div><div id="loveWords"></div>
+  <div class="bg-glow"></div>
+  <div id="hearts"></div>
+  <div id="loveWords"></div>
+  <div id="finalLoveBg"></div>
 </div>
+
 <main id="app">
 <section class="screen active">
-  <div class="emoji">🥺</div><h1>با من میای سر قرار؟</h1>
+  <div class="emoji">🥺</div>
+  <h1>با من میای سر قرار؟</h1>
   <p>فقط یه سوال ساده‌ست... جواب درست هم فقط یکیشه 😏</p>
-  <div class="actions"><button id="yesBtn" class="choice yes">آره 💕</button><button id="noBtn" class="choice no">نه</button></div>
+  <div class="actions">
+    <button id="yesBtn" class="choice yes">آره 💕</button>
+    <button id="noBtn" class="choice no">نه</button>
+  </div>
   <div id="noMessage" class="tiny-message"></div>
 </section>
-<section class="screen">
-  <div class="emoji">📅</div><h1>کی وقت داری؟</h1><p>یه تاریخ و ساعت خوب برام انتخاب کن</p>
+
+<section class="screen date-screen">
+  <div class="emoji date-emoji">📅</div>
+  <h1>کی وقت داری؟</h1>
+  <p>یه تاریخ و ساعت خوب برام انتخاب کن</p>
   <div class="fields">
-    <label>تاریخ<input id="dateInput" type="date"></label>
-    <label>ساعت<input id="timeInput" type="time"></label>
+    <label>تاریخ
+      <input id="dateInput" type="text" readonly inputmode="none" placeholder="انتخاب تاریخ">
+    </label>
+    <label>ساعت
+      <input id="timeInput" type="time">
+    </label>
   </div>
+
+  <div id="calendar" class="calendar" aria-hidden="true">
+    <div class="calendar-head">
+      <button id="prevMonth" class="cal-nav" type="button">‹</button>
+      <strong id="monthTitle"></strong>
+      <button id="nextMonth" class="cal-nav" type="button">›</button>
+    </div>
+    <div class="weekdays">
+      <span>ش</span><span>ی</span><span>د</span><span>س</span><span>چ</span><span>پ</span><span>ج</span>
+    </div>
+    <div id="calendarDays" class="calendar-days"></div>
+  </div>
+
   <button id="nextBtn" class="primary">بعدی ✨</button>
 </section>
+
 <section class="screen">
-  <div class="emoji">🍽️</div><h1>چی سفارش میدی؟</h1><p>یه چیز خوشمزه انتخاب کن که مهمونت باشی</p>
+  <div class="emoji">🍽️</div>
+  <h1>چی سفارش میدی؟</h1>
+  <p>یه چیز خوشمزه انتخاب کن که مهمونت کنم فرشته من 👀💞</p>
   <div class="food-grid">
     <button class="food" data-food="قهوه">☕ قهوه</button>
     <button class="food" data-food="پیتزا">🍕 پیتزا</button>
@@ -36,13 +67,17 @@
   </div>
   <button id="goBtn" class="primary">بریم که بریم 💌</button>
 </section>
+
 <section class="screen final">
-  <div class="emoji">🎉</div><h1>خوشحالم نگفتی نه!</h1>
+  <div class="emoji final-emoji">🎉</div>
+  <h1>خوشحالم نگفتی نه!</h1>
   <p id="finalDate">پس آماده باش، خودم میام دنبالت 🚗💨</p>
   <p>برای اینکه ازت درخواست کنم یه وبسایت طراحی کردم، چیز مهمی نبود 🙈</p>
   <div id="lastMessage" class="last-message"></div>
 </section>
 </main>
+
+<div id="sparkles" aria-hidden="true"></div>
 <script src="script.js"></script>
 </body>
 </html>

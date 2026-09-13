@@ -1,12 +1,62 @@
-*{box-sizing:border-box}html,body{margin:0;width:100%;min-height:100%;font-family:Tahoma,"Segoe UI",sans-serif}body{overflow:hidden;background:#f7b6cf;color:#6d2946}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;min-height:100%;font-family:Tahoma,"Segoe UI",sans-serif}
+body{overflow:hidden;background:#f7b6cf;color:#6d2946}
+button,input{font:inherit}
 #background{position:fixed;inset:0;overflow:hidden;z-index:0;background:radial-gradient(circle at 20% 15%,rgba(255,255,255,.75),transparent 25%),radial-gradient(circle at 85% 30%,rgba(255,255,255,.42),transparent 28%),linear-gradient(145deg,#fbd5e3,#f5a9c8 48%,#f9c9db)}
 .bg-glow{position:absolute;inset:-20%;background:radial-gradient(circle,rgba(255,255,255,.18),transparent 55%);animation:breathe 5s ease-in-out infinite}
-#app{position:relative;z-index:2;min-height:100dvh;display:grid;place-items:center;padding:28px}.screen{display:none;width:min(92vw,430px);text-align:center;padding:34px 24px;border-radius:30px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(10px);box-shadow:0 18px 50px rgba(117,38,74,.12);animation:screenIn .55s ease both}.screen.active{display:block}
-.emoji{font-size:64px;margin-bottom:18px;filter:drop-shadow(0 5px 8px rgba(100,30,60,.12))}h1{font-size:28px;margin:0 0 13px;line-height:1.5}p{font-size:15px;line-height:2;margin:0 0 24px}.actions{display:flex;justify-content:center;gap:12px}
-.choice,.primary,.food{border:0;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease}.choice:active,.primary:active,.food:active{transform:scale(.95)}.choice{min-width:120px;padding:13px 22px;border-radius:999px;font-weight:700}.yes,.primary{color:#fff;background:linear-gradient(135deg,#ef78aa,#d94f88);box-shadow:0 9px 20px rgba(117,38,74,.18)}.no{color:#fff;background:rgba(120,48,78,.65);box-shadow:0 9px 20px rgba(117,38,74,.18)}
-.tiny-message{height:22px;margin-top:12px;font-size:12px}.fields{display:grid;gap:14px;text-align:right;margin-bottom:20px}label{font-size:14px}input{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid rgba(255,255,255,.7);border-radius:15px;background:rgba(255,255,255,.72);color:#6d2946;outline:none}.primary{width:100%;padding:14px;border-radius:18px;font-weight:700}
-.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}.food{padding:16px 10px;border-radius:20px;background:rgba(255,255,255,.48);color:#6d2946;border:1px solid rgba(255,255,255,.7);box-shadow:none}.food.selected{background:rgba(224,80,135,.85);color:#fff;transform:translateY(-2px)}
-.last-message{font-size:22px;font-weight:800;opacity:0;transform:scale(.7);min-height:35px}.last-message.show{animation:lovePop .9s cubic-bezier(.2,1.4,.3,1) forwards}
-.floating-heart,.floating-word{position:absolute;pointer-events:none;user-select:none}.floating-heart{font-size:var(--size);opacity:var(--opacity);animation:floatUp var(--duration) linear infinite;left:var(--left);bottom:-60px;filter:blur(var(--blur))}.floating-word{left:var(--left);top:var(--top);font-size:var(--size);opacity:var(--opacity);white-space:nowrap;animation:drift var(--duration) ease-in-out infinite alternate}
-@keyframes floatUp{to{transform:translateY(-115vh) translateX(var(--drift)) rotate(20deg);opacity:0}}@keyframes drift{from{transform:translateX(-12px)}to{transform:translateX(28px)}}@keyframes breathe{50%{transform:scale(1.06);opacity:.7}}@keyframes screenIn{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}@keyframes lovePop{0%{opacity:0;transform:scale(.5)}70%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+#app{position:relative;z-index:2;min-height:100dvh;display:grid;place-items:center;padding:28px}
+.screen{display:none;width:min(92vw,430px);text-align:center;padding:34px 24px;border-radius:30px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.55);backdrop-filter:blur(10px);box-shadow:0 18px 50px rgba(117,38,74,.12);animation:screenIn .55s ease both}
+.screen.active{display:block}
+.emoji{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-size:64px;margin-bottom:18px;filter:drop-shadow(0 5px 8px rgba(100,30,60,.12))}
+.date-emoji{animation:emojiTurn 3.8s ease-in-out infinite}
+.final-emoji{animation:emojiFloat 2.8s ease-in-out infinite}
+h1{font-size:28px;font-weight:500;margin:0 0 13px;line-height:1.5}
+p{font-size:15px;font-weight:400;line-height:2;margin:0 0 24px}
+.actions{display:flex;justify-content:center;gap:12px}
+.choice,.primary,.food{border:0;cursor:pointer;transition:transform .16s ease,box-shadow .16s ease,opacity .16s ease}
+.choice:active,.primary:active,.food:active{transform:scale(.95)}
+.choice{min-width:120px;padding:13px 22px;border-radius:999px;font-weight:400}
+.yes,.primary{color:#fff;background:linear-gradient(135deg,#ef78aa,#d94f88);box-shadow:0 9px 20px rgba(117,38,74,.18)}
+.no{color:#fff;background:rgba(120,48,78,.65);box-shadow:0 9px 20px rgba(117,38,74,.18)}
+.tiny-message{height:22px;margin-top:12px;font-size:12px;font-weight:400}
+.fields{display:grid;gap:14px;text-align:right;margin-bottom:16px}
+label{font-size:14px;font-weight:400}
+input{display:block;width:100%;margin-top:7px;padding:13px;border:1px solid rgba(255,255,255,.7);border-radius:15px;background:rgba(255,255,255,.72);color:#6d2946;outline:none;font-weight:400}
+input::placeholder{color:#946179}
+.primary{width:100%;padding:14px;border-radius:18px;font-weight:400}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.food{padding:16px 10px;border-radius:20px;background:rgba(255,255,255,.48);color:#6d2946;border:1px solid rgba(255,255,255,.7);box-shadow:none;font-weight:400}
+.food.selected{background:rgba(224,80,135,.85);color:#fff;transform:translateY(-2px)}
+.calendar{display:none;padding:13px;border-radius:22px;background:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.8);margin:-2px 0 18px;box-shadow:0 10px 28px rgba(117,38,74,.10)}
+.calendar.open{display:block;animation:calendarIn .25s ease both}
+.calendar-head{display:grid;grid-template-columns:38px 1fr 38px;align-items:center;margin-bottom:10px}
+.calendar-head strong{font-size:14px;font-weight:500}
+.cal-nav{width:34px;height:34px;border:0;border-radius:50%;background:rgba(224,80,135,.12);color:#6d2946;cursor:pointer;font-size:25px;line-height:1}
+.weekdays,.calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}
+.weekdays span{font-size:11px;font-weight:500;opacity:.65;padding:4px}
+.calendar-days button{height:34px;border:0;border-radius:10px;background:rgba(255,255,255,.45);color:#6d2946;font-size:12px;font-weight:400;cursor:pointer}
+.calendar-days button.empty{background:transparent;cursor:default}
+.calendar-days button.today{box-shadow:inset 0 0 0 1px rgba(217,79,136,.35)}
+.calendar-days button.selected-day{background:#df5b91;color:#fff}
+.last-message{font-size:22px;font-weight:400;opacity:0;transform:scale(.7);min-height:35px}
+.last-message.show{animation:lovePop .9s cubic-bezier(.2,1.4,.3,1) forwards}
+.floating-heart,.floating-word{position:absolute;pointer-events:none;user-select:none}
+.floating-heart{font-size:var(--size);opacity:var(--opacity);animation:floatUp var(--duration) linear infinite;left:var(--left);bottom:-60px;filter:blur(var(--blur))}
+.floating-word{left:var(--left);top:var(--top);font-size:var(--size);opacity:var(--opacity);white-space:nowrap;animation:drift var(--duration) ease-in-out infinite alternate}
+#finalLoveBg{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;opacity:0;transform:scale(.72)}
+#finalLoveBg.show{animation:finalBgIn 1.15s cubic-bezier(.18,1.25,.3,1) forwards}
+#finalLoveBg::before{content:"";position:absolute;width:min(88vw,420px);height:170px;border-radius:50%;background:radial-gradient(ellipse,rgba(255,255,255,.34),transparent 70%);filter:blur(14px)}
+#finalLoveBg span{position:relative;font-size:clamp(25px,7vw,38px);font-weight:300;color:#71462e;letter-spacing:.2px;text-align:center;text-shadow:0 2px 12px rgba(255,255,255,.55)}
+.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;box-shadow:0 0 7px 2px rgba(255,255,255,.95);animation:sparkOut .85s ease-out forwards}
+#sparkles{position:fixed;inset:0;z-index:10;pointer-events:none}
+@keyframes floatUp{to{transform:translateY(-115vh) translateX(var(--drift)) rotate(20deg);opacity:0}}
+@keyframes drift{from{transform:translateX(-16px) rotate(-1deg)}to{transform:translateX(32px) rotate(2deg)}}
+@keyframes breathe{50%{transform:scale(1.06);opacity:.7}}
+@keyframes screenIn{from{opacity:0;transform:scale(.94) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+@keyframes lovePop{0%{opacity:0;transform:scale(.5)}70%{opacity:1;transform:scale(1.12)}100%{opacity:1;transform:scale(1)}}
+@keyframes emojiTurn{0%,100%{transform:rotate(0deg)}35%{transform:rotate(7deg)}65%{transform:rotate(-7deg)}}
+@keyframes emojiFloat{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-6px) rotate(2deg)}}
+@keyframes calendarIn{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+@keyframes finalBgIn{0%{opacity:0;transform:scale(.72)}60%{opacity:.88;transform:scale(1.08)}100%{opacity:.78;transform:scale(1)}}
+@keyframes sparkOut{0%{opacity:1;transform:translate(0,0) scale(1.5)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
 @media(max-width:420px){h1{font-size:25px}.emoji{font-size:56px}.screen{padding:28px 20px}}
