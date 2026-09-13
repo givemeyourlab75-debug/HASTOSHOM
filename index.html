@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7b6cf">
+<title>برای هستی فرشته من</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="background" aria-hidden="true">
+  <div class="bg-glow"></div><div id="hearts"></div><div id="loveWords"></div>
+</div>
+<main id="app">
+<section class="screen active">
+  <div class="emoji">🥺</div><h1>با من میای سر قرار؟</h1>
+  <p>فقط یه سوال ساده‌ست... جواب درست هم فقط یکیشه 😏</p>
+  <div class="actions"><button id="yesBtn" class="choice yes">آره 💕</button><button id="noBtn" class="choice no">نه</button></div>
+  <div id="noMessage" class="tiny-message"></div>
+</section>
+<section class="screen">
+  <div class="emoji">📅</div><h1>کی وقت داری؟</h1><p>یه تاریخ و ساعت خوب برام انتخاب کن</p>
+  <div class="fields">
+    <label>تاریخ<input id="dateInput" type="date"></label>
+    <label>ساعت<input id="timeInput" type="time"></label>
+  </div>
+  <button id="nextBtn" class="primary">بعدی ✨</button>
+</section>
+<section class="screen">
+  <div class="emoji">🍽️</div><h1>چی سفارش میدی؟</h1><p>یه چیز خوشمزه انتخاب کن که مهمونت باشی</p>
+  <div class="food-grid">
+    <button class="food" data-food="قهوه">☕ قهوه</button>
+    <button class="food" data-food="پیتزا">🍕 پیتزا</button>
+    <button class="food" data-food="پاستا">🍝 پاستا</button>
+    <button class="food" data-food="کوبیده">🍢 کوبیده</button>
+  </div>
+  <button id="goBtn" class="primary">بریم که بریم 💌</button>
+</section>
+<section class="screen final">
+  <div class="emoji">🎉</div><h1>خوشحالم نگفتی نه!</h1>
+  <p id="finalDate">پس آماده باش، خودم میام دنبالت 🚗💨</p>
+  <p>برای اینکه ازت درخواست کنم یه وبسایت طراحی کردم، چیز مهمی نبود 🙈</p>
+  <div id="lastMessage" class="last-message"></div>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
