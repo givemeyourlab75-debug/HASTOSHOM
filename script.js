@@ -256,7 +256,7 @@ function runSurpriseTransition(){
       surpriseTransition.classList.remove("show");
       surpriseTransition.setAttribute("aria-hidden","true");
     },180);
-  },520);
+  },4000);
 }
 
 goBtn.onclick=()=>{
